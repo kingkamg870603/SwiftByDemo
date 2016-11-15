@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF3A39401DDAAA2000CC5240 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3A393F1DDAAA2000CC5240 /* Home.storyboard */; };
+		AF3A39421DDAAAD800CC5240 /* NPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3A39411DDAAAD800CC5240 /* NPHomeViewController.swift */; };
+		AF3A39451DDAAF7900CC5240 /* ScreenExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3A39441DDAAF7900CC5240 /* ScreenExt.swift */; };
 		AF6852F81DD9C99E0090B29E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6852F71DD9C99E0090B29E /* AppDelegate.swift */; };
 		AF6852FA1DD9C99E0090B29E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6852F91DD9C99E0090B29E /* ViewController.swift */; };
 		AF6852FD1DD9C99E0090B29E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6852FB1DD9C99E0090B29E /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF3A393F1DDAAA2000CC5240 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		AF3A39411DDAAAD800CC5240 /* NPHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPHomeViewController.swift; sourceTree = "<group>"; };
+		AF3A39441DDAAF7900CC5240 /* ScreenExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenExt.swift; sourceTree = "<group>"; };
 		AF6852F41DD9C99E0090B29E /* SwiftByDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftByDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6852F71DD9C99E0090B29E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF6852F91DD9C99E0090B29E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +80,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF3A393D1DDAA94900CC5240 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AF3A393E1DDAA9C100CC5240 /* Controller */,
+				AF3A393F1DDAAA2000CC5240 /* Home.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AF3A393E1DDAA9C100CC5240 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AF3A39411DDAAAD800CC5240 /* NPHomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AF3A39431DDAAE2B00CC5240 /* ByExtension */ = {
+			isa = PBXGroup;
+			children = (
+				AF3A39441DDAAF7900CC5240 /* ScreenExt.swift */,
+			);
+			path = ByExtension;
+			sourceTree = "<group>";
+		};
 		AF6852EB1DD9C99E0090B29E = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +128,8 @@
 		AF6852F61DD9C99E0090B29E /* SwiftByDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AF3A39431DDAAE2B00CC5240 /* ByExtension */,
+				AF3A393D1DDAA94900CC5240 /* Home */,
 				AF6852F71DD9C99E0090B29E /* AppDelegate.swift */,
 				AF6852F91DD9C99E0090B29E /* ViewController.swift */,
 				AF6852FB1DD9C99E0090B29E /* Main.storyboard */,
@@ -187,6 +220,7 @@
 		AF6852EC1DD9C99E0090B29E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = NP;
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = QB;
@@ -238,6 +272,7 @@
 				AF6853021DD9C99E0090B29E /* LaunchScreen.storyboard in Resources */,
 				AF6852FF1DD9C99E0090B29E /* Assets.xcassets in Resources */,
 				AF6852FD1DD9C99E0090B29E /* Main.storyboard in Resources */,
+				AF3A39401DDAAA2000CC5240 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +298,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF6852FA1DD9C99E0090B29E /* ViewController.swift in Sources */,
+				AF3A39421DDAAAD800CC5240 /* NPHomeViewController.swift in Sources */,
 				AF6852F81DD9C99E0090B29E /* AppDelegate.swift in Sources */,
+				AF3A39451DDAAF7900CC5240 /* ScreenExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +549,7 @@
 				AF68531E1DD9C99E0090B29E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF68531F1DD9C99E0090B29E /* Build configuration list for PBXNativeTarget "SwiftByDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +558,7 @@
 				AF6853211DD9C99E0090B29E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF6853221DD9C99E0090B29E /* Build configuration list for PBXNativeTarget "SwiftByDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +567,7 @@
 				AF6853241DD9C99E0090B29E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

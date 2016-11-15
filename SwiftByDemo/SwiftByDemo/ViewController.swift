@@ -8,8 +8,6 @@
 
 import UIKit
 
-var kScreenW = UIScreen.main.bounds.size.width
-var kScreenH = UIScreen.main.bounds.size.height
 
 class ViewController: UIViewController
 {
@@ -28,7 +26,7 @@ class ViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-      
+        setNavUI();
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +43,22 @@ class ViewController: UIViewController
         tableView.delegate = self;
         tableView.dataSource = self;
         view = tableView;
+    }
+    
+    /**
+    */
+    func setNavUI() -> Void
+    {
+        let titleView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 44));
+        let subTitleLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 22));
+        subTitleLabel.text = "主题发布";
+        subTitleLabel.textAlignment = NSTextAlignment.center;
+        subTitleLabel.textColor = UIColor.red;
+        subTitleLabel.font = UIFont.systemFont(ofSize: 12.0);
+        titleView.addSubview(subTitleLabel);
+        self.navigationItem.titleView = titleView;
+   
+        return
     }
 }
 
