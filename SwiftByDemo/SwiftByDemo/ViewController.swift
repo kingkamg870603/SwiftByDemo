@@ -14,6 +14,16 @@ var kScreenH = UIScreen.main.bounds.size.height
 class ViewController: UIViewController
 {
   
+    //MARK:--------------------------lazyloading-----------------------------
+    /**
+     创建tableView
+    */
+    lazy var tableView: UITableView = {
+        
+       let tableView = UITableView(frame: UIScreen.main.bounds, style: UITableViewStyle.plain);
+        return tableView;
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -26,6 +36,9 @@ class ViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
 
+    /**
+     重写view
+    */
     override func loadView()
     {
         let tableView = UITableView(frame: UIScreen.main.bounds, style:UITableViewStyle.plain);
@@ -35,8 +48,10 @@ class ViewController: UIViewController
     }
 }
 
+
 extension ViewController: UITableViewDataSource, UITableViewDelegate
 {
+    //MARK:--------------------------UITableViewDataSource-----------------------
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
        let cellIdentify = "cellIdentify";
