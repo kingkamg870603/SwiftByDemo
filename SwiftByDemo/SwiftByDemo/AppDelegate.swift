@@ -16,9 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+         UIApplication.shared.statusBarStyle = .lightContent
         window = UIWindow.init(frame: kScreenSize);
-        let homeStoryboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
-        window?.rootViewController = homeStoryboard.instantiateInitialViewController();
+        let mainTabbarController = NPCustomTabBarController()
+        window?.rootViewController = mainTabbarController
         window?.makeKeyAndVisible();
         return true
     }

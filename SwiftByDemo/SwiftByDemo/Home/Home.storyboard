@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Custom Navigation Controller-->
         <scene sceneID="Lng-DP-YR1">
             <objects>
-                <navigationController id="yiJ-6H-6gA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Home" id="yiJ-6H-6gA" customClass="NPCustomNavigationController" customModule="SwiftByDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lMW-hb-dQF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="-74" y="57"/>
         </scene>
-        <!--View Controller-->
+        <!--兴趣-->
         <scene sceneID="QWg-6n-WpI">
             <objects>
-                <viewController id="EZ0-bd-JjX" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="EZ0-bd-JjX" customClass="NPInterestViewController" customModule="SwiftByDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FQD-gQ-bff"/>
                         <viewControllerLayoutGuide type="bottom" id="RBs-ng-6T3"/>
@@ -60,13 +60,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="le9-A9-vfx">
-                        <barButtonItem key="rightBarButtonItem" title="兴趣" id="rX5-U9-VSn"/>
+                    <navigationItem key="navigationItem" title="兴趣" id="le9-A9-vfx">
+                        <barButtonItem key="rightBarButtonItem" title="兴趣" id="rX5-U9-VSn">
+                            <connections>
+                                <segue destination="kf8-Kv-duH" kind="push" id="ym5-zL-Kez"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2Q-YL-9vd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="761" y="56"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gVB-73-Our">
+            <objects>
+                <viewController id="kf8-Kv-duH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4ff-b5-MVM"/>
+                        <viewControllerLayoutGuide type="bottom" id="gTq-Rg-lsh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ey3-0U-jEZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UGQ-Xn-IM8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJw-88-dXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1482" y="55"/>
         </scene>
     </scenes>
 </document>

@@ -17,6 +17,8 @@ class NPHomeViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         setUpUI();
+      
+
     }
 
 
@@ -26,15 +28,26 @@ class NPHomeViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "segueToInterest")
+        {
+            let destionViewController = segue.destination as! NPInterestViewController;
+            destionViewController.delegate = self;
+        }
     }
-    */
+    
+
+    override var preferredStatusBarStyle: UIStatusBarStyle
+    {
+        return .lightContent
+    }
+
 
     /**
      重写view
@@ -46,10 +59,12 @@ class NPHomeViewController: UIViewController {
     
     //MARK:----------------------------initUI----------------------------------
     /**
-     设置UI
+     设置导航UI
      */
     func setUpUI() -> Void
     {
+
+        
         self.navigationItem.titleView = titleView;
         //self.navigationItem.rightBarButtonItem = rightItem;
         self.navigationItem.rightBarButtonItems = rightItems;
@@ -74,14 +89,29 @@ class NPHomeViewController: UIViewController {
     */
     lazy var titleView: UIView = {
      
-        let titleView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 44));
-        let subTitleLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 22));
+         //上方主题
+        let titleView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 64));
+        let subTitleLabel = UILabel.init(frame: CGRect.init(x: 0, y: 5, width: 100, height: 22));
         subTitleLabel.text = "主题发布";
         subTitleLabel.textAlignment = NSTextAlignment.center;
-        subTitleLabel.textColor = UIColor.red;
+        subTitleLabel.textColor = UIColor(netHex: kColorIconyYellow, alpha: 1)
+;
         subTitleLabel.font = UIFont.systemFont(ofSize: 12.0);
         titleView.addSubview(subTitleLabel);
 
+        //下方菜单
+        let titleMenu = NPTitleButton()
+        titleMenu.frame = CGRect.init(x: 0, y: 20, width: 100, height: 30)
+        titleMenu.setImage(#imageLiteral(resourceName: "arrow_up"), for: UIControlState.normal)
+        titleMenu.setImage(#imageLiteral(resourceName: "arrow_down"), for: UIControlState.selected)
+        titleMenu.setTitle("kingkamg", for: UIControlState.normal)
+        titleMenu.setTitle("kingkamg", for: UIControlState.selected)
+        titleMenu.setTitleColor(UIColor(netHex: kColorIconyYellow, alpha: 1)
+, for: UIControlState.normal)
+        titleMenu.setTitleColor(UIColor(netHex: kColorIconyYellow, alpha: 1)
+, for: UIControlState.highlighted)
+        titleMenu.addTarget(self, action:#selector(menuAction(_:)), for: UIControlEvents.touchUpInside)
+        titleView.addSubview(titleMenu)
         return titleView;
     }();
     
@@ -101,28 +131,59 @@ class NPHomeViewController: UIViewController {
     
     lazy var rightItems: [UIBarButtonItem] = {
         
+        /*
         let rightBtn = UIButton.init(type: UIButtonType.custom);
         rightBtn.frame = CGRect.init(x: 0, y: 0, width: 50, height: 44);
         rightBtn.setTitle("兴趣", for: UIControlState.normal);
         rightBtn.setTitleColor(UIColor.red, for: UIControlState.normal);
         rightBtn.addTarget(self,action:#selector(buttonAtion(_:)),for:.touchUpInside);
         let rightItem = UIBarButtonItem.init(customView: rightBtn);
-        
+        */
+        let rightItem = self.createBarButtonItem(title:"兴趣", target:self, action:#selector(buttonAtion(_:)))
         //用于消除左边空隙，要不然按钮顶不到最前面
         let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
         spacer.width = -10;
     
         let rightItems = [spacer, rightItem];
-        return rightItems as! [UIBarButtonItem];
+        return rightItems;
     }()
+    
+    //MARK:------------------------custom fucntion---------------------
+   /**
+     创建barbaritem
+     */
+   fileprivate func createBarButtonItem(title: String, target: AnyObject, action:Selector) -> UIBarButtonItem
+     {
+        let btn = UIButton.init(type: UIButtonType.custom);
+        btn.frame = CGRect.init(x: 0, y: 0, width: 50, height: 44);
+        btn.setTitle(title, for: UIControlState.normal);
+        btn.setTitleColor(UIColor(netHex: kColorIconyYellow, alpha: 1)
+, for: UIControlState.normal);
+        btn.addTarget(self,action:action,for:.touchUpInside);
+        return UIBarButtonItem.init(customView: btn);
+    }
     //MARK:------------------------Event resopond-----------------------
     /**
      兴趣触发事件
     */
     func buttonAtion(_ sender:UIButton)
     {
-        print(#function);
+        print("buttontitle = \(sender.titleLabel?.text)");
         self.performSegue(withIdentifier: "segueToInterest", sender: nil);
+    }
+    
+    func menuAction(_ sender:UIButton)
+    {
+        print("\(#function)")
+        sender.isSelected = !(sender.isSelected)
+//        if sender.isSelected
+//        {
+//            sender.isSelected = false
+//        }
+//        else
+//        {
+//            sender.isSelected = true
+//        }
     }
 }
 
@@ -147,5 +208,43 @@ extension NPHomeViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return 3;
+    }
+}
+
+
+extension NPHomeViewController: interestDelegate
+{
+    
+    ///实现interestDelegate函数
+    ///
+    /// - Parameters:
+    ///   - viewController: <#viewController description#>
+    ///   - dataArray: <#dataArray description#>
+    func chooseInterest(viewController: NPInterestViewController, dataArray: [[String : String]])
+    {
+        
+        for item in dataArray 
+        {
+            print("name =\(item["name"]!) and ImageName =\(item["imageName"]!)");
+//            if let dataDict = item as?[String:String]
+//            {
+//                print("\(dataDict["name"])");
+//            }
+            
+//            for (key,value) in item
+//            {
+//                print("\(key),\(value)")
+//            }
+            
+        }
+//        let dict = ["name":"key name","name1":"key1 name","name2":"key 2 name"]
+//        for key in dict{
+//            print(key)
+//        }
+//        var dict = ["name":"jinpangpang","age":"16"]
+//        for (key,value) in dict
+//        {
+//        print("\(key),\(value)")
+//          }
     }
 }
