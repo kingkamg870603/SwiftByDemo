@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF06B2F11DE14BA000CA4D3D /* NPSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF06B2F01DE14BA000CA4D3D /* NPSortViewController.swift */; };
+		AF06B2F31DE1531100CA4D3D /* NPPopovPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF06B2F21DE1531100CA4D3D /* NPPopovPresentationController.swift */; };
+		AF06B2F51DE1DC3100CA4D3D /* NPPopovAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF06B2F41DE1DC3100CA4D3D /* NPPopovAnimation.swift */; };
 		AF0A3F121DDD4B6D003069AB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A3F111DDD4B6D003069AB /* UIColor.swift */; };
 		AF10C0B71DE03E3A00FD0549 /* NPTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10C0B61DE03E3A00FD0549 /* NPTitleButton.swift */; };
 		AF10C0BB1DE0870200FD0549 /* Inform.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF10C0BA1DE0870200FD0549 /* Inform.storyboard */; };
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF06B2F01DE14BA000CA4D3D /* NPSortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPSortViewController.swift; sourceTree = "<group>"; };
+		AF06B2F21DE1531100CA4D3D /* NPPopovPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPPopovPresentationController.swift; sourceTree = "<group>"; };
+		AF06B2F41DE1DC3100CA4D3D /* NPPopovAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPPopovAnimation.swift; sourceTree = "<group>"; };
 		AF0A3F111DDD4B6D003069AB /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		AF10C0B61DE03E3A00FD0549 /* NPTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPTitleButton.swift; sourceTree = "<group>"; };
 		AF10C0BA1DE0870200FD0549 /* Inform.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Inform.storyboard; sourceTree = "<group>"; };
@@ -129,6 +135,9 @@
 			children = (
 				AF3A39411DDAAAD800CC5240 /* NPHomeViewController.swift */,
 				AF36349C1DDAE16B00D48A17 /* NPInterestViewController.swift */,
+				AF06B2F01DE14BA000CA4D3D /* NPSortViewController.swift */,
+				AF06B2F21DE1531100CA4D3D /* NPPopovPresentationController.swift */,
+				AF06B2F41DE1DC3100CA4D3D /* NPPopovAnimation.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -344,11 +353,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF06B2F11DE14BA000CA4D3D /* NPSortViewController.swift in Sources */,
 				AF27A51B1DDCA9A8000640EC /* NPCustomNavigationController.swift in Sources */,
 				AF6852FA1DD9C99E0090B29E /* ViewController.swift in Sources */,
 				AF3A39421DDAAAD800CC5240 /* NPHomeViewController.swift in Sources */,
 				AF6852F81DD9C99E0090B29E /* AppDelegate.swift in Sources */,
 				AF36349D1DDAE16B00D48A17 /* NPInterestViewController.swift in Sources */,
+				AF06B2F31DE1531100CA4D3D /* NPPopovPresentationController.swift in Sources */,
+				AF06B2F51DE1DC3100CA4D3D /* NPPopovAnimation.swift in Sources */,
 				AF0A3F121DDD4B6D003069AB /* UIColor.swift in Sources */,
 				AF10C0B71DE03E3A00FD0549 /* NPTitleButton.swift in Sources */,
 				AFFC0F791DDC8FDD008B4189 /* NPCustomTabBarController.swift in Sources */,

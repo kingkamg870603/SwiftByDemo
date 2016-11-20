@@ -10,27 +10,24 @@ import UIKit
 
 class NPHomeViewController: UIViewController {
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         setUpUI();
-      
-
+        NotificationCenter.default.addObserver(self, selector: #selector(menuChange(_:)), name: NSNotification.Name(rawValue: kTitleMenuWillShow), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(menuChange(_:)), name: NSNotification.Name(rawValue:kTitleMenuWillDiss), object: nil)
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -40,14 +37,13 @@ class NPHomeViewController: UIViewController {
             let destionViewController = segue.destination as! NPInterestViewController;
             destionViewController.delegate = self;
         }
+
     }
     
-
     override var preferredStatusBarStyle: UIStatusBarStyle
     {
         return .lightContent
     }
-
 
     /**
      重写view
@@ -63,8 +59,6 @@ class NPHomeViewController: UIViewController {
      */
     func setUpUI() -> Void
     {
-
-        
         self.navigationItem.titleView = titleView;
         //self.navigationItem.rightBarButtonItem = rightItem;
         self.navigationItem.rightBarButtonItems = rightItems;
@@ -110,8 +104,9 @@ class NPHomeViewController: UIViewController {
 , for: UIControlState.normal)
         titleMenu.setTitleColor(UIColor(netHex: kColorIconyYellow, alpha: 1)
 , for: UIControlState.highlighted)
-        titleMenu.addTarget(self, action:#selector(menuAction(_:)), for: UIControlEvents.touchUpInside)
+        titleMenu.addTarget(self, action:#selector(NPHomeViewController.menuAction(_:)), for: UIControlEvents.touchUpInside)
         titleView.addSubview(titleMenu)
+       
         return titleView;
     }();
     
@@ -148,6 +143,10 @@ class NPHomeViewController: UIViewController {
         return rightItems;
     }()
     
+    lazy var popovAnimation: NPPopovAnimation = {
+        let papovAnimation = NPPopovAnimation()
+        return papovAnimation
+    }()
     //MARK:------------------------custom fucntion---------------------
    /**
      创建barbaritem
@@ -169,21 +168,41 @@ class NPHomeViewController: UIViewController {
     func buttonAtion(_ sender:UIButton)
     {
         print("buttontitle = \(sender.titleLabel?.text)");
-        self.performSegue(withIdentifier: "segueToInterest", sender: nil);
+        self.performSegue(withIdentifier: "segueToInterest", sender: nil)
     }
     
     func menuAction(_ sender:UIButton)
     {
         print("\(#function)")
-        sender.isSelected = !(sender.isSelected)
-//        if sender.isSelected
-//        {
-//            sender.isSelected = false
-//        }
-//        else
+        //sender.isSelected = !(sender.isSelected)
+//        if sender.isSelected == false
 //        {
 //            sender.isSelected = true
 //        }
+//        else
+//        {
+//            sender.isSelected = false
+//        }
+        //self.performSegue(withIdentifier: "modeSearch", sender: nil)
+        let sortVC = UIStoryboard.init(name: "Home", bundle: Bundle.main).instantiateViewController(withIdentifier: "modelSort")
+        sortVC.transitioningDelegate = popovAnimation
+        sortVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        self.present(sortVC, animated: true, completion: nil)
+    }
+    
+    func menuChange(_ note:Notification)
+    {
+        let useInfo = note.userInfo as! [String:Any]
+        let name = useInfo["name"]
+        let bext = useInfo["bExt"]
+        print("result =\(name),\(bext)")
+        for item in (navigationItem.titleView?.subviews)!
+        {
+            if item.isKind(of: UIButton.self)
+            {
+               (item as! UIButton).isSelected = !(item as! UIButton).isSelected
+            }
+        }
     }
 }
 
@@ -248,3 +267,4 @@ extension NPHomeViewController: interestDelegate
 //          }
     }
 }
+

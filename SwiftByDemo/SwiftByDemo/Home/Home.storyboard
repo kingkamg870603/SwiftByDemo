@@ -47,6 +47,44 @@
             </objects>
             <point key="canvasLocation" x="-74" y="57"/>
         </scene>
+        <!--Sort View Controller-->
+        <scene sceneID="yKC-t7-tWA">
+            <objects>
+                <viewController storyboardIdentifier="modelSort" id="MZX-e8-qKN" customClass="NPSortViewController" customModule="SwiftByDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="erc-Z2-t1T"/>
+                        <viewControllerLayoutGuide type="bottom" id="NZL-AM-7LH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mZW-aG-MNs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smd-fy-Q0W">
+                                <rect key="frame" x="141" y="310" width="94" height="48"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="9Hh-ls-uiK"/>
+                                    <constraint firstAttribute="width" constant="94" id="MbN-Y9-LoA"/>
+                                </constraints>
+                                <state key="normal" title="完成">
+                                    <color key="titleColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="finishAction:" destination="MZX-e8-qKN" eventType="touchUpInside" id="giF-gm-hSK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="smd-fy-Q0W" firstAttribute="centerY" secondItem="mZW-aG-MNs" secondAttribute="centerY" id="dvB-zz-ebH"/>
+                            <constraint firstItem="smd-fy-Q0W" firstAttribute="centerX" secondItem="mZW-aG-MNs" secondAttribute="centerX" id="sux-MO-5co"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aBW-Ue-0ZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721" y="553"/>
+        </scene>
         <!--兴趣-->
         <scene sceneID="QWg-6n-WpI">
             <objects>
@@ -70,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2Q-YL-9vd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="56"/>
+            <point key="canvasLocation" x="722" y="-135"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gVB-73-Our">
@@ -89,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJw-88-dXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482" y="55"/>
+            <point key="canvasLocation" x="1468" y="-135"/>
         </scene>
     </scenes>
 </document>
