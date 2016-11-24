@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '8.0'
+
+target 'SwiftByDemo' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SwiftByDemo
+
+  target 'SwiftByDemoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'SwiftByDemoUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+   pod 'Alamofire', '~> 4.0'
+   pod 'SwiftyJSON', :git => 'https://github.com/IBM-Swift/SwiftyJSON.git'
+end

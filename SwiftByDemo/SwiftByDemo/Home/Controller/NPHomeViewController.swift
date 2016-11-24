@@ -11,11 +11,18 @@ import UIKit
 class NPHomeViewController: UIViewController {
 
     override func viewDidLoad() {
+        
+        var dataJson = [String:AnyObject]()
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setUpUI();
         NotificationCenter.default.addObserver(self, selector: #selector(menuChange(_:)), name: NSNotification.Name(rawValue: kTitleMenuWillShow), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(menuChange(_:)), name: NSNotification.Name(rawValue:kTitleMenuWillDiss), object: nil)
+        NPNetWorkTools.sharedInstance.postRequest(urlString: "user/login", params: ["username":"15618950978","password":"123456"], success: { (dataJson) in
+            print(dataJson)
+        }) { (_) in
+            
+        }
     }
 
     deinit {
